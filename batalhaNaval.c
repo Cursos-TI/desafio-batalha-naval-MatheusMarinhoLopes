@@ -12,6 +12,7 @@ int main() {
 
     int tabuleiro[10][10]; // tamanho do tabuleiro
     int i, j;
+    int tamanhoNavio = 3;
 
     for (i = 0; i < 10; i++){
         for (j = 0; j < 10; j++){
@@ -34,6 +35,22 @@ int main() {
     tabuleiro[linhaV][colunaV] = 3;
     tabuleiro[linhaV + 1][colunaV] = 3;
     tabuleiro[linhaV + 2][colunaV] = 3;
+
+    // posicionamento do Navio 3 (navio diagonal principal)
+    for (int i = 0; i < tamanhoNavio; i++){
+        int linhaDiagonalPrincipal = 0 + i;
+        int colunaDiagonalPrincipal = 0 + i;
+
+        tabuleiro[linhaDiagonalPrincipal][colunaDiagonalPrincipal] = 3;
+    }
+
+    // posicionamento do Navio 4 (navio diagonal secundária)
+    for (int i = 0; i < tamanhoNavio; i++){
+        int linhaDiagonalSecundaria = 5 + i;
+        int colunaDiagonalSecundaria = 4 - i;
+
+        tabuleiro[linhaDiagonalSecundaria][colunaDiagonalSecundaria] = 3;
+    }
 
         printf("  -- Tabuleiro Batalha Naval --  \n"); // imprime o tabuleiro e as posições dos 2 navios
     for (i = 0; i < 10; i++){

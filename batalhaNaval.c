@@ -13,15 +13,49 @@ int main() {
     int tabuleiro[10][10]; // tamanho do tabuleiro
     int i, j;
     int tamanhoNavio = 3;
-    int cone[5][5];
-    int cruz[5][5];
-    int octaedro[5][5];
 
     for (i = 0; i < 10; i++){
         for (j = 0; j < 10; j++){
             tabuleiro[i][j] = 0;
         }
     }
+
+    // posicionamento da habilidade do octaedro
+    int linhaOctaedro = 7;
+    int colunaOctaedro = 8;
+
+    tabuleiro[linhaOctaedro][colunaOctaedro] = 5;
+    tabuleiro[linhaOctaedro + 1][colunaOctaedro] = 5;
+    tabuleiro[linhaOctaedro + 1][colunaOctaedro + 1] = 5;
+    tabuleiro[linhaOctaedro + 1][colunaOctaedro - 1] = 5;
+    tabuleiro[linhaOctaedro + 2][colunaOctaedro] = 5;
+
+    // posicionamento da habilidade da cruz
+    int linhaCruz = 3;
+    int colunaCruz = 2;
+
+    tabuleiro[linhaCruz][colunaCruz] = 5;
+    tabuleiro[linhaCruz + 1][colunaCruz] = 5;
+    tabuleiro[linhaCruz + 1][colunaCruz + 1] = 5;
+    tabuleiro[linhaCruz + 1][colunaCruz + 2] = 5;
+    tabuleiro[linhaCruz + 1][colunaCruz - 1] = 5;
+    tabuleiro[linhaCruz + 1][colunaCruz - 2] = 5;
+    tabuleiro[linhaCruz + 2][colunaCruz] = 5;
+
+    // posicionamento da habilidade do cone
+    int linhaCone = 7;
+    int colunaCone = 3;
+
+    tabuleiro[linhaCone][colunaCone] = 5;
+    tabuleiro[linhaCone + 1][colunaCone] = 5;
+    tabuleiro[linhaCone + 1][colunaCone + 1] = 5;
+    tabuleiro[linhaCone + 1][colunaCone - 1] = 5;
+    tabuleiro[linhaCone + 2][colunaCone] = 5;
+    tabuleiro[linhaCone + 2][colunaCone + 1] = 5;
+    tabuleiro[linhaCone + 2][colunaCone - 1] = 5;
+    tabuleiro[linhaCone + 2][colunaCone + 2] = 5;
+    tabuleiro[linhaCone + 2][colunaCone - 2] = 5;
+
     // posicionamento do Navio 1 (navio horizontal)
     int linhaH = 2; // o 'H' significa que é o navio na horizontal
     int colunaH = 4; // o 'H' significa que é o navio na horizontal
@@ -37,6 +71,7 @@ int main() {
     tabuleiro[linhaV][colunaV] = 3;
     tabuleiro[linhaV + 1][colunaV] = 3;
     tabuleiro[linhaV + 2][colunaV] = 3;
+
     // posicionamento do Navio 3 (navio diagonal principal)
     for (int i = 0; i < tamanhoNavio; i++){
         int linhaDiagonalPrincipal = 0 + i;
@@ -44,6 +79,7 @@ int main() {
 
         tabuleiro[linhaDiagonalPrincipal][colunaDiagonalPrincipal] = 3;
     }
+
     // posicionamento do Navio 4 (navio diagonal secundária)
     for (int i = 0; i < tamanhoNavio; i++){
         int linhaDiagonalSecundaria = 5 + i;
@@ -51,7 +87,8 @@ int main() {
 
         tabuleiro[linhaDiagonalSecundaria][colunaDiagonalSecundaria] = 3;
     }
-        printf("  -- Tabuleiro Batalha Naval --  \n"); // imprime o tabuleiro e as posições dos 2 navios
+
+        printf("  -- Tabuleiro Batalha Naval --  \n"); // imprime o tabuleiro, as posições dos 4 navios e das 3 habilidades
     for (i = 0; i < 10; i++){
         for (j = 0; j < 10; j++){
             printf(" %d ", tabuleiro[i][j]);
